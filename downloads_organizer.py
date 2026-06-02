@@ -1,20 +1,12 @@
 import os
 import shutil
+import json
 
 pasta_de_origem = r"C:\Users\Thiago Ether\Downloads"
 
-pastas = {
-    ".jpg": "Imagens",
-    ".png": "Imagens",
-    ".pdf": "PDFs",
-    ".mp3": "Musicas",
-    ".xlsx": "Planilhas",
-    ".zip": "Compactados",
-    ".rar": "Compactados",
-    ".stl": "STL",
-    ".exe": "Exeutavéis",
-    ".iso": "Imagem ISO"
-}
+with open("config.json", "r", encoding="utf-8") as arquivo:
+    categorias = json.load(arquivo)
+
 
 for arquivo in os.listdir(pasta_de_origem):
 
@@ -25,10 +17,10 @@ for arquivo in os.listdir(pasta_de_origem):
 
     extensao = os.path.splitext(arquivo)[1].lower()
 
-    if extensao in pastas:
+    if extensao in categorias:
         pasta_destino = os.path.join(
             pasta_de_origem,
-            pastas[extensao]
+            categorias[extensao]
         )
 
         os.makedirs(pasta_destino, exist_ok=True)
@@ -38,4 +30,4 @@ for arquivo in os.listdir(pasta_de_origem):
             os.path.join(pasta_destino, arquivo)
         )
 
-        print(f"{arquivo} movido para {pastas[extensao]}")
+        print(f"{arquivo} movido para {categorias[extensao]}")
