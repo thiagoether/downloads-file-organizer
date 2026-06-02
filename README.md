@@ -1,21 +1,23 @@
-# Organizador de Arquivos da Pasta Downloads
+# Organizador de Arquivos
 
-Script em Python desenvolvido para organizar automaticamente os arquivos da pasta Downloads com base em suas extensões.
+Aplicação desenvolvida em Python para automatizar a organização de arquivos em diretórios específicos com base em suas extensões.
 
-O objetivo do projeto é automatizar uma tarefa comum do dia a dia: manter a pasta de downloads organizada, separando arquivos em categorias como imagens, documentos, vídeos, áudios, planilhas e arquivos compactados.
+O projeto foi criado inicialmente para organizar a pasta Downloads, mas pode ser utilizado em qualquer diretório selecionado pelo usuário através da interface gráfica.
 
-Este projeto foi desenvolvido como parte dos meus estudos em Python, com foco em automação, manipulação de arquivos e organização de diretórios.
+Além da organização automática dos arquivos, o sistema utiliza um arquivo de configuração JSON para definir categorias personalizadas e gera logs das operações realizadas.
 
 ---
 
 ## Funcionalidades
 
-- Organiza arquivos automaticamente por extensão
-- Cria as pastas de destino caso não existam
-- Suporta diversas categorias de arquivos
-- Ignora diretórios existentes
-- Fácil de personalizar e expandir
-- Utiliza apenas bibliotecas nativas do Python
+* Organização automática de arquivos por extensão
+* Interface gráfica desenvolvida com Tkinter
+* Seleção dinâmica da pasta a ser organizada
+* Configuração de categorias através de arquivo JSON
+* Criação automática das pastas de destino
+* Registro das operações em arquivo de log
+* Estrutura modularizada para facilitar manutenção e expansão
+* Utilização exclusiva de bibliotecas nativas do Python
 
 ---
 
@@ -56,38 +58,24 @@ Downloads/
 
 ## Tecnologias Utilizadas
 
-- Python 3
-- os
-- shutil
+* Python 3
+* Tkinter
+* JSON
+* os
+* shutil
+* datetime
 
 ---
 
 ## Como Funciona
 
-O script realiza os seguintes passos:
-
-1. Percorre todos os arquivos da pasta Downloads.
-2. Identifica a extensão de cada arquivo.
-3. Verifica a categoria correspondente.
-4. Cria a pasta de destino, caso necessário.
-5. Move o arquivo para a pasta correta.
-
----
-
-## Categorias Suportadas
-
-Exemplos de categorias organizadas pelo script:
-
-| Categoria | Extensões |
-|------------|------------|
-| Imagens | .jpg, .jpeg, .png, .gif |
-| Documentos | .pdf, .docx, .txt |
-| Planilhas | .xlsx, .csv |
-| Áudios | .mp3, .wav |
-| Vídeos | .mp4, .avi |
-| Compactados | .zip, .rar, .7z |
-
-Novas extensões podem ser adicionadas facilmente alterando o dicionário de categorias no código.
+1. O usuário seleciona uma pasta através da interface gráfica.
+2. O sistema lê as categorias configuradas no arquivo `config.json`.
+3. Cada arquivo é analisado de acordo com sua extensão.
+4. A categoria correspondente é identificada.
+5. Caso necessário, a pasta de destino é criada automaticamente.
+6. O arquivo é movido para sua respectiva categoria.
+7. A operação é registrada em um arquivo de log.
 
 ---
 
@@ -96,37 +84,78 @@ Novas extensões podem ser adicionadas facilmente alterando o dicionário de cat
 ```text
 downloads-file-organizer/
 │
-├── file_organizer.py
+├── main.py
+├── gui.py
+├── organizer.py
+├── config.json
 ├── README.md
-└── requirements.txt
+│
+└── logs/
+    └── log.txt
+```
+
+---
+
+## Configuração das Categorias
+
+As categorias são definidas através do arquivo `config.json`.
+
+Exemplo:
+
+```json
+{
+    "Imagens": [".jpg", ".png", ".jpeg"],
+    "Documentos": [".pdf", ".docx", ".txt"],
+    "Áudios": [".mp3", ".wav"],
+    "Vídeos": [".mp4", ".avi"],
+    "Compactados": [".zip", ".rar"]
+}
+```
+
+Novas categorias e extensões podem ser adicionadas sem modificar o código-fonte.
+
+---
+
+## Sistema de Logs
+
+Todas as movimentações são registradas automaticamente.
+
+Exemplo:
+
+```text
+2026-06-02 14:30:15 | foto.jpg -> Imagens
+2026-06-02 14:30:16 | relatorio.pdf -> Documentos
 ```
 
 ---
 
 ## Conhecimentos Aplicados
 
-Este projeto permitiu praticar conceitos importantes de programação, incluindo:
+Este projeto permitiu aplicar conceitos de:
 
-- Manipulação de arquivos e diretórios
-- Automação de tarefas
-- Estruturas condicionais
-- Organização de código
-- Bibliotecas nativas do Python
-- Interação com o sistema operacional
+* Manipulação de arquivos e diretórios
+* Automação de tarefas
+* Programação orientada à modularização
+* Leitura de arquivos JSON
+* Desenvolvimento de interfaces gráficas com Tkinter
+* Registro de eventos (logs)
+* Interação com o sistema operacional
+* Organização e manutenção de código
 
 ---
 
-## Possíveis Melhorias Futuras
+## Melhorias Futuras
 
-- Monitoramento automático da pasta Downloads em tempo real
-- Interface gráfica (GUI)
-- Arquivo de configuração personalizado
-- Detecção de arquivos duplicados
-- Sistema de logs
+* Tratamento de arquivos duplicados
+* Monitoramento automático de pastas em tempo real
+* Estatísticas de arquivos processados
+* Temas personalizados para a interface
+* Geração de relatórios de organização
 
 ---
 
 ## Autor
 
-Thiago  
-Engenheiro da Computação | Estudante de Python para Automação e Dados
+Thiago Ether
+
+Engenheiro da Computação | Python | Automação | Análise de Dados
