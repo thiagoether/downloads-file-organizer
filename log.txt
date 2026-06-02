@@ -1,0 +1,3 @@
+2026-06-02 08:54:55.467647 | bazzite-deck-gnome-stable-live-amd64.iso -> Imagem ISO 
+2026-06-02 08:54:55.468572 | EXTRA NG.pdf -> PDFs 
+2026-06-02 08:54:55.469442 | Lipo18650 battery box for flysky - 3125536.zip -> Arquivos Compactados 
