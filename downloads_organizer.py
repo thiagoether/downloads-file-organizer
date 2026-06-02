@@ -1,6 +1,7 @@
 import os
 import shutil
 import json
+from datetime import datetime
 
 pasta_de_origem = r"C:\Users\Thiago Ether\Downloads"
 
@@ -37,5 +38,11 @@ for arquivo in os.listdir(pasta_de_origem):
             caminho_arquivo,
             os.path.join(pasta_destino, arquivo)
         )
+        hora = datetime.now()
+
+        with open("log.txt", "a", encoding="utf-8") as log:
+            log.write(
+                f"{hora} | {arquivo} -> {categoria}\n"
+            )
 
         print(f"{arquivo} movido para {categoria_encontrada}")
