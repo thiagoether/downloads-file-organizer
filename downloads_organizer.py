@@ -17,10 +17,18 @@ for arquivo in os.listdir(pasta_de_origem):
 
     extensao = os.path.splitext(arquivo)[1].lower()
 
-    if extensao in categorias:
+    categoria_encontrada = None
+
+    for categoria, extensoes in categorias.items():
+        if extensao in extensoes:
+            categoria_encontrada = categoria
+            break
+
+    if categoria_encontrada:
+
         pasta_destino = os.path.join(
             pasta_de_origem,
-            categorias[extensao]
+            categoria_encontrada
         )
 
         os.makedirs(pasta_destino, exist_ok=True)
@@ -30,4 +38,4 @@ for arquivo in os.listdir(pasta_de_origem):
             os.path.join(pasta_destino, arquivo)
         )
 
-        print(f"{arquivo} movido para {categorias[extensao]}")
+        print(f"{arquivo} movido para {categoria_encontrada}")

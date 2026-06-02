@@ -1,12 +1,37 @@
 {
-".jpg": "Imagens",
-".png": "Imagens",
-".pdf": "PDFs",
-".mp3": "Musicas",
-".xlsx": "Planilhas",
-".zip": "Compactados",
-".rar": "Compactados",
-".stl": "STL",
-".exe": "Exeutavéis",
-".iso": "Imagem ISO"
+    "Imagens": [
+        ".jpg", 
+        ".png", 
+        ".webp"
+    ],
+
+    "PDFs": [
+        ".pdf"
+    ],
+
+    "Musicas": [
+        ".mp3"
+    ],
+
+    "Planilhas": [
+        ".xls", 
+        ".xlxs"
+    ],
+
+    "Arquivos Compactados": [
+        ".rar", 
+        ".zip"
+    ],
+
+    "STL": [
+        ".stl"
+    ],
+
+    "Exeutavéis": [
+        ".exe"
+    ],
+    
+    "Imagem ISO": [
+        ".iso"
+    ]
 }
